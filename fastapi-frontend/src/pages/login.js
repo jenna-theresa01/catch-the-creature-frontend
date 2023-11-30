@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useGlobalState } from '../context/GlobalState';
 import AuthService from '../services/auth.service';
 import { jwtDecode } from "jwt-decode";
-import styles from './login.module.css';
+import styles from '../styles/home.module.css';
 import Link from 'next/link';
 //------------------------------------------------------------------------------------------------------------------------------
 function LoginPage() {
