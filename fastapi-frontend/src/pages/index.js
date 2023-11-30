@@ -6,6 +6,7 @@ import authService from '../services/auth.service';
 import { jwtDecode } from "jwt-decode";
 import styles from '../styles/home.module.css';
 import Link from 'next/link';
+import NavBar from './navbar';
 
 export default function Home() {
 
@@ -37,6 +38,7 @@ export default function Home() {
       <main className={`${styles.main}`}>
 
         <div className={styles.grid}>
+        <NavBar />
         {state.user ? (
             <li className="nav-item">
               <Link href="/" className={styles.logout} onClick={handleLogout}>Logout</Link>
@@ -46,6 +48,7 @@ export default function Home() {
               <Link href="/login">Login</Link>
             </li>
           )}
+        
         </div>
       </main>
     </>
