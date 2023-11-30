@@ -14,9 +14,6 @@ const Navbar = () => {
 
     return (
         <nav className="navbar">
-            <a className='navbar-brand' href='/home'>
-                <img src='fastapi-frontend/public/img/logo.png' alt="Logo" height="30" />
-            </a>
             <ul className="navbar-nav">
             <li className={`nav-item dropdown ${creaturesDropdownOpen ? 'show' : ''}`}>
                 <a className="nav-link dropdown-toggle" onClick={toggleCreaturesDropdown}>Creatures</a>
