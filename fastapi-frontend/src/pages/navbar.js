@@ -13,7 +13,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="navbar">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <ul className="navbar-nav">
             <li className={`nav-item dropdown ${creaturesDropdownOpen ? 'show' : ''}`}>
                 <a className="nav-link dropdown-toggle" onClick={toggleCreaturesDropdown}>Creatures</a>
