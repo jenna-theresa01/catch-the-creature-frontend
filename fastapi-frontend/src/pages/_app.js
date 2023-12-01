@@ -1,4 +1,5 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/globals.css';
 import { GlobalStateProvider } from '../context/GlobalState';
 import styles from '../styles/global.module.css';
 

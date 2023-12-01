@@ -37,11 +37,10 @@ export default function Home() {
 
   return (
     <>
-      <main className={`${styles.main}`}>
-
+      <main className={`${styles.main} flex flex-row items-center justify-center h-screen`}>
         <div className={styles.grid}>
           <Logo />
-          <Title />
+          <Title className="text-red-500" />
           <NavBar />
         {/* {state.user ? (
             <li className="nav-item">
