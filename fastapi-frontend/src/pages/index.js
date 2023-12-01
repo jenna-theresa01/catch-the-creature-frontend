@@ -37,12 +37,12 @@ export default function Home() {
 
   return (
     <>
-      <main className={`${styles.main} flex flex-row items-center justify-center h-screen`}>
-        <div className={styles.grid}>
+      <main className='bg-scroll flex flex-row items-center justify-center h-screen'>
+        <div>
           <Logo />
-          <Title className="text-red-500" />
+          <Title />
           <NavBar />
-        {/* {state.user ? (
+        {state.user ? (
             <li className="nav-item">
               <Link href="/" className={styles.logout} onClick={handleLogout}>Logout</Link>
             </li>
@@ -50,7 +50,7 @@ export default function Home() {
             <li className="nav-item">
               <Link href="/login">Login</Link>
             </li>
-          )} */}
+          )}
         
         </div>
       </main>

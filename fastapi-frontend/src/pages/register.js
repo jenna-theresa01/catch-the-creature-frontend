@@ -2,7 +2,7 @@ import React, { useEffect, useState,} from "react";
 import AuthService from "../services/auth.service";
 import { useRouter } from "next/navigation";
 import { useGlobalState } from "../context/GlobalState";
-import styles from './register.module.css';
+import styles from '../styles/register.module.css';
 import { jwtDecode } from "jwt-decode";
 import Link from 'next/link';
 //------------------------------------------------------------------------------------------------------------------------------
