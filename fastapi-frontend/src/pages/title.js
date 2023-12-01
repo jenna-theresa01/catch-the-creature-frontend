@@ -1,7 +1,5 @@
-// Your Title component file
-
 import React from 'react';
-import styles from '../styles/home.module.css';
+// import styles from '../styles/home.module.css';
 import {Permanent_Marker} from 'next/font/google'
 
 const font = Permanent_Marker({subsets: ['latin'], weight:'400'})

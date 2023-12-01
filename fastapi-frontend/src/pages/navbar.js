@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
 const Navbar = () => {
+    // setting to false to make the dropdowns closed on the window loading
     const [creaturesDropdownOpen, setCreaturesDropdownOpen] = useState(false);
     const [communityDropdownOpen, setCommunityDropdownOpen] = useState(false);
 
+    // this toggles state between true and false; achieved using the current state and negating it with '!'
     const toggleCreaturesDropdown = () => {
     setCreaturesDropdownOpen(!creaturesDropdownOpen);
     };
