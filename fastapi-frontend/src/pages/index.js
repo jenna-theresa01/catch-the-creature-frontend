@@ -8,7 +8,6 @@ import styles from '../styles/home.module.css';
 import Link from 'next/link';
 import NavBar from './navbar';
 import Title from './title';
-import Logo from './logo';
 
 export default function Home() {
 
@@ -39,8 +38,7 @@ export default function Home() {
     <>
       <main className='bg-scroll flex flex-row items-center justify-center h-screen'>
         <div>
-          <Logo />
-          <Title />
+          {/* <Title /> */}
           <NavBar />
         {state.user ? (
             <li className="nav-item">

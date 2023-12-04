@@ -1,7 +1,7 @@
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/globals.css';
 import { GlobalStateProvider } from '../context/GlobalState';
-import styles from '../styles/global.module.css';
+// import styles from '../styles/global.module.css';
 
 
 function MyApp({ Component, pageProps }) {
