@@ -8,6 +8,7 @@ import styles from '../styles/home.module.css';
 import Link from 'next/link';
 import NavBar from './navbar';
 import Title from './title';
+// import MyApp from './_app';
 
 export default function Home() {
 

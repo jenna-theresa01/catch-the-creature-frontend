@@ -43,7 +43,7 @@ const NavBar = () => {
 
     return (
         <div className='fixed left-0 top-0 w-full z-10'>
-            <nav className="bg-gray-100 p-4 flex justify-between items-center">
+            <nav className="p-4 flex justify-between items-center">
                     <ul className="flex space-x-4 ml-4 items-center">
                         <Logo />
                         <Dropdown title="Creatures" items={creatureItems} />
