@@ -13,7 +13,7 @@ const Dropdown = ({ title, items }) => {
 };
 
 return (
-    <li className="nav-item group relative">
+    <li className="nav-item group relative bg-animal_crossing_brown">
         <a
             className="nav-link cursor-pointer"
             onClick={toggleDropdown}
@@ -46,7 +46,7 @@ const NavBar = () => {
     ];
 
     return (
-        <div className='fixed left-0 top-0 w-full z-10'>
+        <div className='fixed left-0 top-0 w-full z-10 bg-animal_crossing_brown'>
             {/* <Title /> */}
             <nav className="p-4 flex justify-between items-center">
                     <ul className="flex space-x-4 ml-4 items-center">

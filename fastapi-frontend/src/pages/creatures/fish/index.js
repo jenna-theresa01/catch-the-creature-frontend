@@ -15,21 +15,4 @@ function FishPage() {
 
 export default FishPage;
 
-// const Fish = ({fish}) => {
-//     return (
-//         <>
-//         <Link
-//             href='/creatures/fish'
-//             state={{fish}}
-//             className="card-link"
-//         >
-//             <div className="fish">
-//                 <img src={fish.img_url} alt="fish" />
-//                 <p></p>
-//             </div>
-//         </Link>
-//         </>
-//     );
-// }
 
-// export default Fish;
