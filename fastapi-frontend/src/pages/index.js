@@ -6,12 +6,14 @@ import authService from '../services/auth.service';
 import { jwtDecode } from "jwt-decode";
 import styles from '../styles/home.module.css';
 import Link from 'next/link';
-import NavBar from './navbar';
-import Title from './title';
+import FishPage from '../components/FishList';
+import NavBar from '@/components/NavBar';
 // import MyApp from './_app';
 
 export default function Home() {
 
+  const apiUrl = "http://127.0.0.1:8000/api/v1/fish/"
+  // const [ state, setState ] = useState(null)
   const { state, dispatch } = useGlobalState();
 
   useEffect(() => {
@@ -27,19 +29,26 @@ export default function Home() {
       }
     };
     getUserFromLocalStorage();
+
+    // axios.get(apiUrl)
+    //   .then((response) => {
+    //     console.log(response.data)
+    //     setState(response.data)
+    //   })
   }, []);
 
   const handleLogout = () => {
     authService.logout();
     dispatch({ type: 'LOGOUT_USER' });
     router.push('/');
+
+
   };
 
   return (
     <>
       <main className='bg-scroll flex flex-row items-center justify-center h-screen'>
         <div>
-          {/* <Title /> */}
           <NavBar />
         {state.user ? (
             <li className="nav-item">

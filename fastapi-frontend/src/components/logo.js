@@ -1,9 +1,11 @@
+import Image from "next/image";
+
 export default function Logo() {
 
     return(
         <div>
             <a className='flex' href=''> {/* change this to be specific to the home screen */}
-                <img src='img/logo.png' alt="Logo" className="w-16 h-16" />
+                <Image src='/img/logo.png' alt="Logo" height={64} width={64} />
             </a>
         </div>
     )
