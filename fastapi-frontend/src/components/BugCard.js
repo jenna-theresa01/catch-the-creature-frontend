@@ -15,11 +15,6 @@ const BugCard = ({ bug }) => {
                     Location: {bug.location}
                 </p>
 
-                {/* Shadow Size */}
-                <p className="text-base mb-2">
-                    Shadow Size: {bug.shadow_size}
-                </p>
-
                 {/* Sell Price */}
                 <div className="flex items-center text-gray-800 text-base mb-2">
                     <span>Sell Price (Nook):</span>
