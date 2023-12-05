@@ -26,7 +26,7 @@ const FishPage = () => {
   console.log(fishData);
 
   return (
-    <div>
+    <div className="bg-animal_crossing_brown">
       <NavBar />
       <div className="container mx-auto my-8">
         <h1 className={font.className}>
