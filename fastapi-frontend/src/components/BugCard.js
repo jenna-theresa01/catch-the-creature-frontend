@@ -1,3 +1,7 @@
+import { Permanent_Marker } from "next/font/google";
+
+const font = Permanent_Marker({ subsets: ["latin"], weight: "400" });
+
 const BugCard = ({ bug }) => {
     return (
         <div className="max-w-sm rounded overflow-hidden shadow-lg">
@@ -8,7 +12,7 @@ const BugCard = ({ bug }) => {
             <div className="px-6 py-4">
 
                 {/* Bug Name */}
-                <div className="font-bold text-xl mb-2">{bug.name}</div>
+                <div className={`font-bold text-xl mb-2 ${font.className}`}>{bug.name}</div>
 
                 {/* Location */}
                 <p className="text-base mb-2">

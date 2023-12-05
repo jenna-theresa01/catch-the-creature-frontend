@@ -1,6 +1,6 @@
-// import {Permanent_Marker} from 'next/font/google'
+import {Permanent_Marker} from 'next/font/google'
 
-// const font = Permanent_Marker({subsets: ['latin'], weight:'400'})
+const font = Permanent_Marker({subsets: ['latin'], weight:'400'})
 
 const DeepSeaCard = ({ deepSea }) => {
     return (
@@ -11,7 +11,7 @@ const DeepSeaCard = ({ deepSea }) => {
             {/* Card Content */}
             <div className="px-6 py-4">
                 {/* Deep Sea Creature Name */}
-                <div className="font-bold text-xl mb-2">{deepSea.name}</div>
+                <div className={`font-bold text-xl mb-2 ${font.className}`}>{deepSea.name}</div>
 
                 {/* Shadow Size */}
                 <p className="text-base mb-2">
