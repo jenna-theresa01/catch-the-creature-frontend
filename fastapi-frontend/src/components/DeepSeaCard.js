@@ -13,11 +13,6 @@ const DeepSeaCard = ({ deepSea }) => {
                 {/* Deep Sea Creature Name */}
                 <div className="font-bold text-xl mb-2">{deepSea.name}</div>
 
-                {/* Location */}
-                <p className="text-base mb-2">
-                    Location: {deepSea.location}
-                </p>
-
                 {/* Shadow Size */}
                 <p className="text-base mb-2">
                     Shadow Size: {deepSea.shadow_size}
