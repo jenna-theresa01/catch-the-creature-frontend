@@ -21,7 +21,8 @@ function LoginPage() {
                 if(resp != undefined){
                     if (resp.access_token) {
                         //let data = jwtDecode(resp.access_token);
-                        let data = resp.data;
+                        let data = resp;
+                        // resp.access_token and resp.user_id
                         await dispatch({
                             type: 'SET_USER',
                             payload: data,

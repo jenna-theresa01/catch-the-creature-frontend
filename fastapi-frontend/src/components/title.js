@@ -3,7 +3,7 @@ import {Permanent_Marker} from 'next/font/google'
 
 const font = Permanent_Marker({subsets: ['latin'], weight:'400'})
 
-export default function Title() {
+export default function Title () {
     return (
         <div className="flex inset-x-0 top-0 items-center justify-center">
             <div className={font.className}>

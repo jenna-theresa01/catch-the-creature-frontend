@@ -8,12 +8,14 @@ import styles from '../styles/home.module.css';
 import Link from 'next/link';
 import FishPage from '../components/FishList';
 import NavBar from '@/components/NavBar';
+import axios from 'axios';
+import Toggle from '@/components/Toggle';
 // import MyApp from './_app';
 
 export default function Home() {
 
   const apiUrl = "http://127.0.0.1:8000/api/v1/fish/"
-  // const [ state, setState ] = useState(null)
+  const [ fish, setFish ] = useState(null)
   const { state, dispatch } = useGlobalState();
 
   useEffect(() => {
@@ -30,11 +32,14 @@ export default function Home() {
     };
     getUserFromLocalStorage();
 
-    // axios.get(apiUrl)
-    //   .then((response) => {
-    //     console.log(response.data)
-    //     setState(response.data)
-    //   })
+    axios.get(apiUrl)
+      .then((response) => {
+        console.log(response.data)
+        setFish(response.data)
+      })
+
+      console.log(fish)
+
   }, []);
 
   const handleLogout = () => {
@@ -48,7 +53,7 @@ export default function Home() {
   return (
     <>
       <main className='bg-scroll flex flex-row items-center justify-center h-screen'>
-        <div>
+        <div className="flex flex-col h-screen">
           <NavBar />
         {state.user ? (
             <li className="nav-item">
@@ -59,8 +64,8 @@ export default function Home() {
               <Link href="/login">Login</Link>
             </li>
           )}
-        
         </div>
+        <Toggle />
       </main>
     </>
   )

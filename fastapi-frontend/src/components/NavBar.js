@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import Logo from './logo';
 import Link from 'next/link';
 import Fish from '../pages/creatures/fish';
+
+
+
 // import Title from './title';
 
 
@@ -29,6 +32,7 @@ return (
             </li>
             ))}
         </ul>
+        
         </li>
     );
 };
@@ -51,19 +55,20 @@ const NavBar = () => {
             <nav className="p-4 flex justify-between items-center">
                     <ul className="flex space-x-4 ml-4 items-center">
                         <Logo />
-                        <Dropdown title="Creatures" items={creatureItems} />
+                        <Dropdown title="Creatures" items={creatureItems} className="bg-animal_crossing_brown" />
                     <li>
-                        <Link href="/events" className="text-gray-800 hover:text-gray-600" >
+                        <Link href="/events" className="hover:text-gray-600" >
                             Events
                         </Link>
                     </li>
                     <li>
-                        <Link href="/tracker" className="text-gray-800 hover:text-gray-600">
+                        <Link href="/tracker" className="hover:text-gray-600">
                             Tracker
                         </Link>
                     </li>
-                    <Dropdown title="Community" items={communityItems} />
+                    <Dropdown title="Community" items={communityItems} className="bg-animal_crossing_brown" />
                     </ul>
+                    
             </nav>
         </div>
 
