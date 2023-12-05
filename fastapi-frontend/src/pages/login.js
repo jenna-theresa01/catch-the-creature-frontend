@@ -1,9 +1,9 @@
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
-import { useGlobalState } from '../../context/GlobalState';
-import AuthService from '../../services/auth.service';
+import { useGlobalState } from '../context/GlobalState';
+import AuthService from '../services/auth.service';
 import { jwtDecode } from "jwt-decode";
-import styles from './login.module.css';
+import styles from '../styles/home.module.css';
 import Link from 'next/link';
 //------------------------------------------------------------------------------------------------------------------------------
 function LoginPage() {
@@ -21,7 +21,8 @@ function LoginPage() {
                 if(resp != undefined){
                     if (resp.access_token) {
                         //let data = jwtDecode(resp.access_token);
-                        let data = jwtDecode(resp.access_token, { header: true });
+                        let data = resp;
+                        // resp.access_token and resp.user_id
                         await dispatch({
                             type: 'SET_USER',
                             payload: data,
