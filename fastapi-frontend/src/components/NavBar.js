@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import Logo from './logo';
 import Link from 'next/link';
-import Fish from '../pages/creatures/fish';
-
-
 
 // import Title from './title';
 

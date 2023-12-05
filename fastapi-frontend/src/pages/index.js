@@ -10,7 +10,7 @@ import FishPage from '../components/FishList';
 import NavBar from '@/components/NavBar';
 import axios from 'axios';
 import Toggle from '@/components/Toggle';
-// import MyApp from './_app';
+import MyApp from './_app';
 
 export default function Home() {
 
