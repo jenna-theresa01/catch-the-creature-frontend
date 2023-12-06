@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Logo from './logo';
 import Link from 'next/link';
-
 // import Title from './title';
 
 
@@ -13,24 +12,29 @@ const Dropdown = ({ title, items }) => {
 };
 
 return (
-    <li className="nav-item group relative bg-animal_crossing_brown">
+    <div className="nav-item group relative bg-animal_crossing_brown"
+    onMouseEnter={toggleDropdown}
+    onMouseLeave={toggleDropdown}
+    >
+        
         <a
             className="nav-link cursor-pointer"
-            onClick={toggleDropdown}
         >
-            {title}
+            {title} &#9660;
         </a>
-        <ul className={`absolute left-0 ${isOpen ? 'block' : 'hidden'} bg-white shadow-md mt-2 space-y-2`}>
+        <ul className={`absolute left-0 ${isOpen ? 'block' : 'hidden'} bg-white shadow-md  space-y-2`}
+        >
             {items.map((item) => (
             <li key={item.id}>
                 <Link className="block px-4 py-2 text-gray-800 hover:bg-gray-200" href={item.url}>
                     {item.label}
+                    
                 </Link>
             </li>
             ))}
         </ul>
         
-        </li>
+        </div>
     );
 };
 
@@ -52,7 +56,7 @@ const NavBar = () => {
             <nav className="p-4 flex justify-between items-center">
                     <ul className="flex space-x-4 ml-4 items-center">
                         <Logo />
-                        <Dropdown title="Creatures" items={creatureItems} className="bg-animal_crossing_brown" />
+                        <Dropdown title="Creatures" items={creatureItems} className="bg-animal_crossing_brown" svg='img/chevron-down.svg' />
                     <li>
                         <Link href="/events" className="hover:text-gray-600" >
                             Events

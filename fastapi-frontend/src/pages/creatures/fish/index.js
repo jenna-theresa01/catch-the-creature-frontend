@@ -27,8 +27,10 @@ const FishPage = () => {
 
   return (
     <div className="bg-animal_crossing_brown">
+      <div>
       <NavBar />
-      <div className="container mx-auto my-8">
+      </div>
+      <div className="container mx-auto mt-24">
         <h1 className={font.className}>
           Fish in Animal Crossing: New Horizons
         </h1>

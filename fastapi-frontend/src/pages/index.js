@@ -52,7 +52,7 @@ export default function Home() {
 
   return (
     <>
-      <main className='bg-scroll flex flex-row items-center justify-center h-screen'>
+      <main className='bg-scroll flex flex-row items-center justify-center h-screen bg-animal_crossing_brown mt-24'>
         <div className="flex flex-col h-screen">
           <NavBar />
         {state.user ? (

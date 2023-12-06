@@ -19,43 +19,45 @@ const FishCard = ({ fish }) => {
 
     return (
         <div className="flex flex-col mb-4 items-center shadow-lg bg-animal_crossing_white">
-            {/* Fish Image */}
-            <img src={fish.image_url} alt={fish.name} className="w-24 h-24 rounded mr-4" />
+            <div className='flex'>
+                <div className='align-items-center'>
+                    {/* Fish Image */}
+                    <img src={fish.image_url} alt={fish.name} className="w-24 h-24 rounded mr-4" />
 
-            {/* Fish Name */}
-            <div className={`text-xl mb-2 ${font.className}`}>{fish.name}</div>
+                    {/* Fish Name */}
+                    <div className={`text-xl mb-2 ${font.className}`}>{fish.name}</div>
+                </div>
+                {/* Card Content */}
+                <div className="px-6 py-4">
 
-            {/* Card Content */}
-            <div className="px-6 py-4">
+                    {/* Location */}
+                    <p className="text-gray-800 mb-2">
+                        Location: {fish.location}
+                    </p>
 
-                {/* Location */}
-                <p className="text-gray-800 mb-2">
-                    Location: {fish.location}
-                </p>
+                    {/* Shadow Size */}
+                    <p className="text-gray-800 mb-2">
+                        Shadow Size: {fish.shadow_size}
+                    </p>
 
-                {/* Shadow Size */}
-                <p className="text-gray-800 mb-2">
-                    Shadow Size: {fish.shadow_size}
-                </p>
-
-                {/* Sell Price */}
-                <div className="flex items-center text-gray-800">
-                    <span>Sell Price (Nook):</span>
-                    <span>{fish.sell_nook}</span>
-                    <img src="/img/money_bag.png" alt="Bells" className="ml-2 h-5 w-5" />
+                    {/* Sell Price */}
+                    <div className="flex items-center text-gray-800 ">
+                        <span>Sell Price (Nook):</span>
+                        <span>{fish.sell_nook}</span>
+                        <img src="/img/money_bag.png" alt="Bells" className="ml-2 h-5 w-5" />
+                    </div>
                 </div>
             </div>
-
             {/* Tracking buttons */}
-            <div className='mt-4'>
+            <div className='m-4'>
                 <button
-                className={`bg-${caught ? 'gray' : 'green'}-500 text-black px-4 py-2 mr-2 rounded`}
+                className={`bg-${caught ? 'green' : 'gray'}-500  text-black px-4 py-2 mr-2 rounded`}
                 onClick={handleToggleCaught}
                 >
                     {caught ? 'Caught!' : 'Caught'}
                 </button>
                 <button
-                className={`bg-${donated ? 'gray' : 'green'}-500 text-black px-4 py-2 mr-2 rounded`}
+                className={`bg-${donated ? 'green' : 'gray'}-500 text-black px-4 py-2 mr-2 rounded`}
                 onClick={handleToggleDonated}
                 >
                     {donated ? 'Donated!' : 'Donated'}
