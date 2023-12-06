@@ -28,7 +28,7 @@ const BugsPage = () => {
         <div className="bg-animal_crossing_brown">
             <NavBar />
             <div className="container mx-auto mt-24">
-                <h1 className={font.className}>
+                <h1 className={`text-3xl text-center pb-8 ${font.className}`}>
                     Bugs in Animal Crossing: New Horizons
                 </h1>
 

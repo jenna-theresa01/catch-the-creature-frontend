@@ -1,3 +1,4 @@
+"use client"
 
 import React, { useState, useEffect } from 'react'
 import { useGlobalState } from '../context/GlobalState';
@@ -6,16 +7,21 @@ import authService from '../services/auth.service';
 import { jwtDecode } from "jwt-decode";
 import styles from '../styles/home.module.css';
 import Link from 'next/link';
-import FishPage from '../components/FishList';
 import NavBar from '@/components/NavBar';
 import axios from 'axios';
 import Toggle from '@/components/Toggle';
-import MyApp from './_app';
+// import MyApp from './_app';
+// import { Accordion, CreatureAccordion } from '@/components/Accordion';
 
 export default function Home() {
 
-  const apiUrl = "http://127.0.0.1:8000/api/v1/fish/"
+  const apiUrlFish = "http://127.0.0.1:8000/api/v1/fish/"
+  const apiUrlBugs = "http://127.0.0.1:8000/api/v1/bugs/"
+  const apiUrlDeepSea = "http://127.0.0.1:8000/api/v1/deep-sea-creatures/"
+
   const [ fish, setFish ] = useState(null)
+  const [ bugs, setBugs ] = useState(null)
+  const [ deepSea, setDeepSea] = useState(null)
   const { state, dispatch } = useGlobalState();
 
   useEffect(() => {
@@ -31,16 +37,36 @@ export default function Home() {
       }
     };
     getUserFromLocalStorage();
+  }, []);
 
-    axios.get(apiUrl)
+   useEffect(() => {
+    axios.get(apiUrlFish)
       .then((response) => {
-        console.log(response.data)
         setFish(response.data)
       })
 
       console.log(fish)
+    }, []); 
 
-  }, []);
+    useEffect(() => {
+      axios.get(apiUrlBugs)
+        .then((response) => {
+          setBugs(response.data)
+        })
+  
+        console.log(bugs)
+      }, []); 
+
+      useEffect(() => {
+        axios.get(apiUrlDeepSea)
+          .then((response) => {
+            setDeepSea(response.data)
+          })
+    
+          console.log(deepSea)
+        }, []); 
+
+
 
   const handleLogout = () => {
     authService.logout();
@@ -65,7 +91,12 @@ export default function Home() {
             </li>
           )}
         </div>
-        <Toggle />
+        <div >
+          <Toggle />
+        </div>
+        <div>
+          {/* <CreatureAccordion /> */}
+        </div>
       </main>
     </>
   )

@@ -31,7 +31,7 @@ const FishPage = () => {
       <NavBar />
       </div>
       <div className="container mx-auto mt-24">
-        <h1 className={font.className}>
+        <h1 className={`text-3xl text-center pb-8 ${font.className}`}>
           Fish in Animal Crossing: New Horizons
         </h1>
 

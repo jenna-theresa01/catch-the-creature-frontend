@@ -57,7 +57,7 @@ return (
         </h1>
         <button 
         onClick={toggleHemisphere}
-        className="bg-animal_crossing_blue hover:bg-blue-200 text-black font-bold py-2 px-4 rounded"
+        className="bg-animal_crossing_blue hover:bg-blue-200 text-black font-bold py-2 px-4 rounded "
         >
             {isNorthernHemisphere ? "Northern" : "Southern"} Hemisphere
         </button>
