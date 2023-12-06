@@ -26,7 +26,7 @@ const FishPage = () => {
   console.log(fishData);
 
   return (
-    <div className="bg-animal_crossing_brown">
+    <div className="bg-animal_crossing_sea">
       <div>
       <NavBar />
       </div>

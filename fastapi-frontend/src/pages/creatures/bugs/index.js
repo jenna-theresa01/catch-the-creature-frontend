@@ -25,7 +25,7 @@ const BugsPage = () => {
     console.log(bugData)
 
     return (
-        <div className="bg-animal_crossing_brown">
+        <div className="bg-animal_crossing_sea">
             <NavBar />
             <div className="container mx-auto mt-24">
                 <h1 className={`text-3xl text-center pb-8 ${font.className}`}>

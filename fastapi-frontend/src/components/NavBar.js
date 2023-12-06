@@ -12,7 +12,7 @@ const Dropdown = ({ title, items }) => {
 };
 
 return (
-    <div className="nav-item group relative bg-animal_crossing_brown"
+    <div className="nav-item group relative bg-animal_crossing_green"
     onMouseEnter={toggleDropdown}
     onMouseLeave={toggleDropdown}
     >
@@ -51,12 +51,12 @@ const NavBar = () => {
     ];
 
     return (
-        <div className='fixed left-0 top-0 w-full z-10 bg-animal_crossing_brown'>
+        <div className='fixed left-0 top-0 w-full z-10 bg-animal_crossing_sea'>
             {/* <Title /> */}
             <nav className="p-4 flex justify-between items-center">
                     <ul className="flex space-x-4 ml-4 items-center">
                         <Logo />
-                        <Dropdown title="Creatures" items={creatureItems} className="bg-animal_crossing_brown" svg='img/chevron-down.svg' />
+                        <Dropdown title="Creatures" items={creatureItems} className="bg-animal_crossing_green" svg='img/chevron-down.svg' />
                     <li>
                         <Link href="/events" className="hover:text-gray-600" >
                             Events
@@ -67,7 +67,7 @@ const NavBar = () => {
                             Tracker
                         </Link>
                     </li>
-                    <Dropdown title="Community" items={communityItems} className="bg-animal_crossing_brown" />
+                    <Dropdown title="Community" items={communityItems} className="bg-animal_crossing_green" />
                     </ul>
                     
             </nav>

@@ -25,6 +25,7 @@ const CreatureFilter = ({ creatures }) => {
                     Show All
                 </button>
                 <button
+                className={`btn`}
             </div>
         </div>
     )

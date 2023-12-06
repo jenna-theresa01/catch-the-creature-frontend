@@ -17,7 +17,7 @@ const BugCard = ({ bug }) => {
   };
 
   return (
-    <div className="flex flex-col mb-4 items-center shadow-lg bg-animal_crossing_white">
+    <div className="flex flex-col mb-4 items-center shadow-lg bg-animal_crossing_brown">
       <div className="flex">
         <div className="align-content-center">
           {/* Bug Image */}
@@ -53,7 +53,7 @@ const BugCard = ({ bug }) => {
       <div className="m-4">
         <button
           className={`text-black ${
-            caught ? "bg-green-500" : "bg-gray-500"
+            caught ? "bg-animal_crossing_sage" : "bg-animal_crossing_tan"
           } px-4 py-2 mr-2 rounded`}
           onClick={handleToggleCaught}
         >
@@ -61,7 +61,7 @@ const BugCard = ({ bug }) => {
         </button>
         <button
           className={`text-black ${
-            donated ? "bg-green-500" : "bg-gray-500"
+            donated ? "bg-animal_crossing_sage" : "bg-animal_crossing_tan"
           } px-4 py-2 mr-2 rounded`}
           onClick={handleToggleDonated}
         >

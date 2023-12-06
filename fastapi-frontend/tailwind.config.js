@@ -4,11 +4,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        animal_crossing_brown: '#c48d3f',
-        animal_crossing_green: '#9dffb0',
-        animal_crossing_blue: '#81f1f7',
-        animal_crossing_white: '#fffffa',
-        animal_crossing_yellow: '#fff563',
+        animal_crossing_brown: '#ceba95',
+        animal_crossing_sky: '#a4eaf6',
+        animal_crossing_sea: '#84d7df',
+        animal_crossing_sage: '#c4d9a9',
+        animal_crossing_tan: '#f6eee3',
       },
     },
   },
