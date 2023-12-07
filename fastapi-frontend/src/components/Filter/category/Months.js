@@ -1,8 +1,8 @@
 import React from "react";
 import FilterButton from "../FilterButton";
 
-const Months = ({ updateMonths }) => {
-    let months = [
+const Month = ({ updateMonth }) => {
+    let month = [
         "January",
         "February",
         "March",
@@ -28,7 +28,7 @@ const Months = ({ updateMonths }) => {
                     aria-expanded="false"
                     aria-controls="collapseTwo"
                 >
-                    Months
+                    Month
                 </button>
             </h2>
             <div 
@@ -38,13 +38,13 @@ const Months = ({ updateMonths }) => {
                 data-parent="#accordionExample"
             >
                 <div className="accordion-body flex flex-wrap gap-3">
-                    {months.map((item, index) => {
+                    {month.map((item, index) => {
                         return(
                             <FilterButton
-                                name="months"
+                                name="month"
                                 index={index}
                                 key={index}
-                                task={updateMonths}
+                                task={updateMonth}
                                 input={item}
                             />
                         );
@@ -55,4 +55,4 @@ const Months = ({ updateMonths }) => {
     );
 };
 
-export default Months
+export default Month
