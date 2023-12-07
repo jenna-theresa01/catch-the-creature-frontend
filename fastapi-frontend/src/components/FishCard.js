@@ -17,7 +17,7 @@ const FishCard = ({ fish }) => {
   };
 
   return (
-    <div className="flex flex-col mb-4 items-center shadow-lg bg-animal_crossing_brown">
+    <div className="flex flex-col mb-4 items-center shadow-lg bg-animal_crossing_brown rounded-lg border-2 border-animal_crossing_tan">
       <div className="flex">
         <div className="align-content-center">
           {/* Fish Image */}
@@ -57,7 +57,7 @@ const FishCard = ({ fish }) => {
         <button
           className={`text-black ${
             caught ? "bg-animal_crossing_sage" : "bg-animal_crossing_tan"
-          } px-4 py-2 mr-2 rounded`}
+          } px-4 py-2 mr-2 rounded-full`}
           onClick={handleToggleCaught}
         >
           {caught ? "Caught!" : "Caught"}
@@ -65,7 +65,7 @@ const FishCard = ({ fish }) => {
         <button
           className={`text-black ${
             donated ? "bg-animal_crossing_sage" : "bg-animal_crossing_tan"
-          } px-4 py-2 mr-2 rounded`}
+          } px-4 py-2 mr-2 rounded-full`}
           onClick={handleToggleDonated}
         >
           {donated ? "Donated!" : "Donated"}

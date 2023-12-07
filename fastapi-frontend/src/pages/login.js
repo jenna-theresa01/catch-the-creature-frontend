@@ -49,14 +49,15 @@ function LoginPage() {
 //------------------------------------------------------------------------------------------------------------------------------
     return (
         <div>
-            <div className={styles.container}>
+            <NavBar />
+            <div >
                 <h1>Login</h1>
                 <div className='flex'>
                     <form
                         onSubmit={handleLogin}
-                        className='mx-auto my-auto border-2 bg-mtgray'
+                        
                     >
-                        <div className='flex justify-between m-2 items-center space-x-2'>
+                        <div >
                             <label htmlFor="email">Email:</label><br></br>
                             <input
                                 className='border'
@@ -67,7 +68,7 @@ function LoginPage() {
                                 required
                             />
                         </div>
-                        <div className='flex justify-between m-2 items-center space-x-2'>
+                        <div >
                             <label htmlFor="pass">Password:</label><br></br>
                             <input
                                 className='border'
@@ -81,13 +82,13 @@ function LoginPage() {
                         </div>
                         <div className='flex'>
                             <input
-                                className={styles.button}
+                                
                                 type="submit"
                                 value="Sign in"
                             />
                         </div>
                     </form>
-                    <Link href="/register" className={styles.link}>
+                    <Link href="/register" >
                         Register Here
                     </Link>
                 </div>

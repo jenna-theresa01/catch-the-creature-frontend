@@ -10,8 +10,11 @@ import Link from 'next/link';
 import NavBar from '@/components/NavBar';
 import axios from 'axios';
 import Toggle from '@/components/Toggle';
+import CreatureFilter from '@/components/Filter/Filter';
 // import MyApp from './_app';
 // import { Accordion, CreatureAccordion } from '@/components/Accordion';
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 export default function Home() {
 
@@ -78,7 +81,7 @@ export default function Home() {
 
   return (
     <>
-      <main className='bg-scroll flex flex-row items-center justify-center h-screen bg-animal_crossing_brown mt-24'>
+      <main className='bg-scroll flex flex-row items-center justify-center h-screen bg-animal_crossing_sea mt-24'>
         <div className="flex flex-col h-screen">
           <NavBar />
         {state.user ? (
@@ -95,6 +98,7 @@ export default function Home() {
           <Toggle />
         </div>
         <div>
+            <CreatureFilter />
           {/* <CreatureAccordion /> */}
         </div>
       </main>

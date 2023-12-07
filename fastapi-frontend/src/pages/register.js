@@ -5,6 +5,7 @@ import { useGlobalState } from "../context/GlobalState";
 import styles from '../styles/register.module.css';
 import { jwtDecode } from "jwt-decode";
 import Link from 'next/link';
+import NavBar from "@/components/NavBar";
 //------------------------------------------------------------------------------------------------------------------------------
 function RegisterPage() {
   const {state, dispatch} = useGlobalState();
@@ -50,6 +51,7 @@ function RegisterPage() {
 //------------------------------------------------------------------------------------------------------------------------------
   return (
     <div>
+      <NavBar />
       <div className={styles.container}>
         <h1>Register</h1>
       <div className="flex">
