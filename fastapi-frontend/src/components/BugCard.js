@@ -37,6 +37,12 @@ const BugCard = ({ bug }) => {
           {/* Location */}
           <p className="text-gray-800  mb-2">Location: {bug.location}</p>
 
+          {/* Months Available */}
+          {/* <p className="text-gray-800  mb-2">Months: {bug.month}</p> */}
+
+          {/* Time of Day */}
+          {/* <p className="text-gray-800  mb-2">Time of Day: {bug.time_by_month}</p> */}
+
           {/* Sell Price */}
           <div className="flex items-center text-gray-800 mb-2">
             <span>Sell Price (Nook):</span>
