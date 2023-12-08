@@ -43,7 +43,7 @@ const FishCard = ({ fish }) => {
           {/* Sell Price */}
           <div className="flex items-center text-gray-800 ">
             <span>Sell Price (Nook):</span>
-            <span>{fish.sell_nook}</span>
+            <span>{fish.sell_nook.toLocaleString()}</span>
             <img
               src="/img/money_bag.png"
               alt="Bells"

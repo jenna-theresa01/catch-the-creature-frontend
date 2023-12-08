@@ -46,7 +46,7 @@ const BugCard = ({ bug }) => {
           {/* Sell Price */}
           <div className="flex items-center text-gray-800 mb-2">
             <span>Sell Price (Nook):</span>
-            <span>{bug.sell_nook}</span>
+            <span>{bug.sell_nook.toLocaleString()}</span>
             <img
               src="/img/money_bag.png"
               alt="Bells"

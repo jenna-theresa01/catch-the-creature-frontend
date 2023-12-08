@@ -40,7 +40,7 @@ const DeepSeaCard = ({ deepSea }) => {
           {/* Sell Price */}
           <div className="flex items-center text-gray-800 text-base mb-2">
             <span>Sell Price (Nook):</span>
-            <span>{deepSea.sell_nook}</span>
+            <span>{deepSea.sell_nook.toLocaleString()}</span>
             <img
               src="/img/money_bag.png"
               alt="Bells"
