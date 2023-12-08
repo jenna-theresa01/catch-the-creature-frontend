@@ -21,7 +21,9 @@ const font = Permanent_Marker({ subsets: ["latin"], weight: "400" });
 export default function Home() {
   // const [fish, setFish] = useState(null);
   // const [bugs, setBugs] = useState(null);
-  const [creatures, setCreatures] = useState([]);
+  const [creatures, setCreatures] = useState();
+  // console.log(`this is the creatures \n${creatures} `)
+  const [hemisphere, setHemisphere] = useState('north');
 
   useEffect(() => {
     const getUserFromLocalStorage = () => {
@@ -52,7 +54,11 @@ export default function Home() {
       .all(endpoints.map((endpoint) => axios.get(endpoint)))
       .then((responses) => {
         // Handle each response individually
-        const creaturesData = responses.map((response) => response.data);
+        console.log(responses)
+        const creaturesArrayData = responses.reduce((acc, response) => [...acc, response.data.data], []);
+        console.log(creaturesArrayData)
+        const creaturesData = creaturesArrayData.reduce((acc, array) => acc.concat(array));
+
         console.log(creaturesData);
 
         // Now you can set your creatures state or do other operations
@@ -68,15 +74,20 @@ export default function Home() {
 
   return (
     <>
-      <main className="bg-scroll flex flex-row items-center justify-center h-screen bg-animal_crossing_sea mt-24">
-        <div className="flex flex-col h-screen items-center">
+      <main className="flex items-center justify-center min-h-screen bg-animal_crossing_sea mt-24">
+        <div className="flex flex-col min-h-screen items-center">
           <NavBar />
           <h1 className={`text-4xl my-4 text-center ${font.className}`}>
             Welcome to Catch the Creatures
           </h1>
           <div>
-            <Toggle />
-            <FilterAccordion {...creatures} />
+            <Toggle onClick={() => {
+              console.log(`in toggle click ${hemisphere}`)
+              setHemisphere(hemisphere === 'south' ? 'north' : 'south')}
+            }
+              hemisphere={hemisphere}
+             />
+            <FilterAccordion creatures={creatures} hemisphere={hemisphere} />
           </div>
         </div>
       </main>

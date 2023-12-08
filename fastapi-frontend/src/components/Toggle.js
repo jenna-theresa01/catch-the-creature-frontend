@@ -4,9 +4,10 @@ import { Permanent_Marker } from "next/font/google";
 
 const font = Permanent_Marker({ subsets: ["latin"], weight: "400" });
 
-export default function Toggle() {
+export default function Toggle(props) {
+  // console.log(props)
   // State to track the hemisphere
-  const [isNorthernHemisphere, setIsNorthernHemisphere] = useState(true);
+  const [isNorthernHemisphere, setIsNorthernHemisphere] = useState(props.hemisphere=='north');
   const [currentTime, setCurrentTime] = useState(new Date().getHours());
   const [fish, setFish] = useState([]);
 
@@ -26,7 +27,7 @@ export default function Toggle() {
     axios
       .get(apiEndpoint)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
 
         // Extract the array of creatures from the nested structure
         const fishData = response.data.data;
@@ -55,10 +56,12 @@ export default function Toggle() {
   return (
     <div className="flex-grow p-8">
       <button
-        onClick={toggleHemisphere}
+        // onClick={toggleHemisphere}
+        onClick={props.onClick}
         className={`bg-animal_crossing_brown hover:bg-animal_crossing_tan text-black font-bold py-2 px-4 rounded-lg shadow-lg`}
       >
-        {isNorthernHemisphere ? "Northern" : "Southern"} Hemisphere
+        {/* {isNorthernHemisphere ? "Northern" : "Southern"} Hemisphere */}
+        {props.hemisphere === 'north' ? "Northern" : "Southern"} Hemisphere
       </button>
       {/* Render your creatures based on the fetched data */}
       {fish.map((fish) => (

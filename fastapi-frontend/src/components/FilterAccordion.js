@@ -1,12 +1,27 @@
-import Image from "next/image";
-import { useState } from "react";
+"use client"
 
-const FilterAccordion = ({ creatures }) => {
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import CreatureType from "./Filter/category/Types";
+
+const FilterAccordion = ({hemisphere, creatures}) => {
+  // const hemisphere = 'north'
+  console.log(creatures)
+  const initialCreatures = creatures && [creatures]
   // State variables for filters
   const [isOpen, setIsOpen] = useState(false);
   const [selectedMonth, setSelectedMonth] = useState("");
   const [selectedCreatureType, setSelectedCreatureType] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("");
+  const [filteredCreatures, setFilteredCreatures] = useState(initialCreatures);
+  
+  console.log(filteredCreatures)
+  console.log(filteredCreatures?.length)
+  console.log(hemisphere)
+
+  useEffect(() => {
+    setFilteredCreatures(creatures)
+  },[creatures])
 
   // Toggle accordion visibility
   const toggleAccordion = () => {
@@ -14,13 +29,29 @@ const FilterAccordion = ({ creatures }) => {
   };
 
   // Filtering logic based on selected filters
-  const filteredCreatures = creatures?.filter((creature) => {
-    return (
-      (selectedMonth === "" || creature.month === selectedMonth) &&
-      (selectedCreatureType === "" || creature.type === selectedCreatureType) &&
-      (selectedLocation === "" || creature.location === selectedLocation)
-    );
+  const filteredCreaturesFilter = () => creatures?.filter((creature) => {
+    if (hemisphere === 'north') {
+      console.log(creature.north.months_array?.includes(Number(selectedMonth)))
+      return (
+        (selectedMonth === "" || creature.north.months_array?.includes(Number(selectedMonth))) &&
+        (selectedCreatureType === "" || creature.type === selectedCreatureType) &&
+        (selectedLocation === "" || creature.location?.includes(selectedLocation))
+      );
+    }
+    if (hemisphere === 'south') {
+      
+      return (
+        (selectedMonth === "" || creature.south.months_array?.includes(Number(selectedMonth))) &&
+        (selectedCreatureType === "" || creature.type === selectedCreatureType) &&
+        (selectedLocation === "" || creature.location?.includes(selectedLocation))
+      );
+    }
   });
+
+  useEffect(() => {
+    console.log('in useEffect ', selectedMonth, selectedLocation, selectedCreatureType)
+    setFilteredCreatures(filteredCreaturesFilter)
+  },[selectedMonth, selectedCreatureType, selectedLocation, hemisphere])
 
   return (
     <div className="w-full max-w-md">
@@ -55,22 +86,25 @@ const FilterAccordion = ({ creatures }) => {
               <label className="block mb-2 font-bold">Month</label>
               <select
                 value={selectedMonth}
-                onChange={(e) => setSelectedMonth(e.target.value)}
+                onChange={(e) => {
+                  console.log('hello onChange')
+                  setSelectedMonth(e.target.value)
+                }}
                 className="w-full border p-2"
               >
                 <option value="">All</option>
-                <option value="January">January</option>
-                <option value="February">February</option>
-                <option value="March">March</option>
-                <option value="April">April</option>
-                <option value="May">May</option>
-                <option value="June">June</option>
-                <option value="July">July</option>
-                <option value="August">August</option>
-                <option value="September">September</option>
-                <option value="October">October</option>
-                <option value="November">November</option>
-                <option value="December">December</option>
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
                 {/* TODO: */}
               </select>
             </div>
@@ -129,7 +163,7 @@ const FilterAccordion = ({ creatures }) => {
                   Under trees disguised as leaves
                 </option>
                 <option value="Underground">Underground</option>
-                <option value="Villager's heads">Villager's heads</option>
+                <option value="villagers">Villager's heads</option>
                 <option value="River">River</option>
                 <option value="Pond">Pond</option>
                 <option value="Pier">Pier</option>
@@ -151,7 +185,7 @@ const FilterAccordion = ({ creatures }) => {
       {filteredCreatures?.map((creature) => (
         <div className="flex flex-col">
           {/* TODO: MAKE THIS LOOK HOW YOU WANT */}
-          <Image src={creature.image} alt="" height={200} width={200} />
+          <img src={creature.image_url} alt="" height={200} width={200} />
           <p>{creature.name}</p>
           <p>{creature.location}</p>
         </div>
