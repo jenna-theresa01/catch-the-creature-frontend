@@ -17,9 +17,9 @@ const DeepSeaCard = ({ deepSea }) => {
   };
 
   return (
-    <div className="flex flex-col mb-4 items-center shadow-lg bg-animal_crossing_brown rounded-lg border-2 border-animal_crossing_tan">
-      <div className="flex">
-        <div className="align-content-center">
+    <div className="flex flex-col mb-4 items-center shadow-lg bg-animal_crossing_brown rounded-lg border-2 border-animal_crossing_tan max-w-md mx-auto">
+      <div className="flex items-center">
+        <div>
           {/* Deep Sea Creature Image */}
           <img
             src={deepSea.image_url}
@@ -28,7 +28,7 @@ const DeepSeaCard = ({ deepSea }) => {
           />
 
           {/* Deep Sea Creature Name */}
-          <div className={`text-xl mb-2 text-center ${font.className}`}>
+          <div className={`text-xl text-center ${font.className}`}>
             {deepSea.name}
           </div>
         </div>
@@ -39,7 +39,7 @@ const DeepSeaCard = ({ deepSea }) => {
 
           {/* Sell Price */}
           <div className="flex items-center text-gray-800 text-base mb-2">
-            <span>Sell Price (Nook):</span>
+            <span>Sell Price (Nook): </span>
             <span>{deepSea.sell_nook.toLocaleString()}</span>
             <img
               src="/img/money_bag.png"
