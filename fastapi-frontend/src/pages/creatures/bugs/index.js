@@ -28,11 +28,11 @@ const BugsPage = () => {
         <div className="bg-animal_crossing_sea">
             <NavBar />
             <div className="container mx-auto mt-24">
-                <h1 className={`text-3xl text-center pb-8 ${font.className}`}>
+                <h1 className={`text-4xl my-4 text-center ${font.className}`}>
                     Bugs in Animal Crossing: New Horizons
                 </h1>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 gap-y-4">
                     {bugData.map((bugs) => (
                         <div key={bugs.id}>
                             <BugCard bug={bugs} />

@@ -12,8 +12,9 @@ import axios from "axios";
 import Toggle from "@/components/Toggle";
 import Filter from "@/components/Filter/Filter";
 import FilterAccordion from "@/components/FilterAccordion";
-// import MyApp from './_app';
-// import { Accordion, CreatureAccordion } from '@/components/Accordion';
+import { Permanent_Marker } from "next/font/google";
+
+const font = Permanent_Marker({ subsets: ["latin"], weight: "400" });
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -21,7 +22,6 @@ export default function Home() {
   // const [fish, setFish] = useState(null);
   // const [bugs, setBugs] = useState(null);
   const [creatures, setCreatures] = useState([]);
-  const { state, dispatch } = useGlobalState();
 
   useEffect(() => {
     const getUserFromLocalStorage = () => {
@@ -62,39 +62,23 @@ export default function Home() {
         console.error("Error fetching creatures:", error);
       });
   }, []);
-// console.log(creatures)
+  // console.log(creatures)
 
-  const handleLogout = () => {
-    authService.logout();
-    dispatch({ type: "LOGOUT_USER" });
-    router.push("/");
-  };
+  //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
   return (
     <>
       <main className="bg-scroll flex flex-row items-center justify-center h-screen bg-animal_crossing_sea mt-24">
-        <div className="flex flex-col h-screen">
+        <div className="flex flex-col h-screen items-center">
           <NavBar />
+          <h1 className={`text-4xl my-4 text-center ${font.className}`}>
+            Welcome to Catch the Creatures
+          </h1>
           <div>
-            {/* <Filter /> */}
+            <Toggle />
             <FilterAccordion {...creatures} />
           </div>
-          {state.user ? (
-            <li className="nav-item">
-              <Link href="/" className={styles.logout} onClick={handleLogout}>
-                Logout
-              </Link>
-            </li>
-          ) : (
-            <li className="nav-item">
-              <Link href="/login">Login</Link>
-            </li>
-          )}
         </div>
-        <div>
-          <Toggle />
-        </div>
-        <div>{/* <CreatureAccordion /> */}</div>
       </main>
     </>
   );

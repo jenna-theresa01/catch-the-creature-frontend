@@ -41,6 +41,9 @@ const FilterAccordion = ({ creatures }) => {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
+            width="20"
+            height="20"
+
           >
             <polyline points="6 9 12 15 18 9"></polyline>
           </svg>
@@ -143,7 +146,7 @@ const FilterAccordion = ({ creatures }) => {
         )}
       </div>
       {/* Display the number of filtered creatures */}
-      <p className="mt-4">Number of Creatures: {filteredCreatures?.length}</p>
+      <p className="mt-7">Number of Creatures: {filteredCreatures?.length}</p>
 
       {filteredCreatures?.map((creature) => (
         <div className="flex flex-col">
