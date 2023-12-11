@@ -83,9 +83,26 @@ const NavBar = () => {
   ];
 
   // check if the screen width is less then 768px (might need to adjust)
-  const checkIsMobile = () => {
-    setIsMobile(window.innerWidth < 768);
-  };
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    const handleResize = () => {
+      checkIsMobile();
+      if (!isMobile) {
+        setIsOpen(false); // Close the menu when transitioning from mobile to desktop
+      }
+    };
+
+    checkIsMobile();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [isMobile]);
 
   const toggleMobileMenu = () => {
     setIsOpen(!isOpen);
@@ -93,37 +110,37 @@ const NavBar = () => {
 
   // add event listener to check for screen width changes
   // and update isMobile state accordingly
-  useEffect(() => {
-    checkIsMobile();
-    window.addEventListener("resize", checkIsMobile);
-    return () => {
-      window.removeEventListener("resize", checkIsMobile);
-    };
-  }, []);
+  // useEffect(() => {
+  //   checkIsMobile();
+  //   window.addEventListener("resize", checkIsMobile);
+  //   return () => {
+  //     window.removeEventListener("resize", checkIsMobile);
+  //   };
+  // }, []);
 
   // Function to close the mobile menu
   const closeMobileMenu = () => {
     setIsOpen(false);
   };
 
-//   // Add event listener to the document body
-//   useEffect(() => {
-//     const handleOutsideClick = (event) => {
-//       // Check if the clicked element is not part of the NavBar
-//       const mobileMenu = document.getElementById("mobile-menu");
-//       if (isMobile && isOpen && mobileMenu && !mobileMenu.contains(event.target)) {
-//         closeMobileMenu();
-//       }
-//     };
+  //   // Add event listener to the document body
+  //   useEffect(() => {
+  //     const handleOutsideClick = (event) => {
+  //       // Check if the clicked element is not part of the NavBar
+  //       const mobileMenu = document.getElementById("mobile-menu");
+  //       if (isMobile && isOpen && mobileMenu && !mobileMenu.contains(event.target)) {
+  //         closeMobileMenu();
+  //       }
+  //     };
 
-//     // Add the event listener
-//     document.body.addEventListener("click", handleOutsideClick);
+  //     // Add the event listener
+  //     document.body.addEventListener("click", handleOutsideClick);
 
-//     // Remove the event listener when the component is unmounted
-//     return () => {
-//       document.body.removeEventListener("click", handleOutsideClick);
-//     };
-//   }, [isOpen, isMobile]);
+  //     // Remove the event listener when the component is unmounted
+  //     return () => {
+  //       document.body.removeEventListener("click", handleOutsideClick);
+  //     };
+  //   }, [isOpen, isMobile]);
 
   return (
     <div className="fixed left-0 top-0 w-full z-10 bg-animal_crossing_sea border-4 border-animal_crossing_sky">
@@ -191,51 +208,25 @@ const NavBar = () => {
         )}
         {/* Mobile menu content */}
         {isOpen && isMobile && (
-          <ul className="flex flex-col space-y-2">
-            <li>
-              <Link href="/" >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/creatures/bugs">
-                Bugs
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/creatures/deep-sea-creatures"
-              >
+          <div className="fixed inset-0 z-50 bg-black bg-opacity-75">
+            <div className="flex justify-end p-4">
+              <button onClick={closeMobileMenu} className="text-white">
+                ✕
+              </button>
+            </div>
+            <div className="flex flex-col items-center text-white">
+              <Link href="/">Home</Link>
+              <Link href="/creatures/bugs">Bugs</Link>
+              <Link href="/creatures/deep-sea-creatures">
                 Deep Sea Creatures
               </Link>
-            </li>
-            <li></li>
-            <li>
-              <Link href="/creatures/fish">
-                Fish
-              </Link>
-            </li>
-            <li>
-              <Link href="/events">
-                Events
-              </Link>
-            </li>
-            <li>
-              <Link href="/tracker">
-                Tracker
-              </Link>
-            </li>
-            <li>
-              <Link href="/community/forum">
-                Forum
-              </Link>
-            </li>
-            <li>
-              <Link href="/community/faqs">
-                FAQs
-              </Link>
-            </li>
-          </ul>
+              <Link href="/creatures/fish">Fish</Link>
+              <Link href="/events">Events</Link>
+              <Link href="/tracker">Tracker</Link>
+              <Link href="/community/forum">Forum</Link>
+              <Link href="/community/faqs">FAQs</Link>
+            </div>
+          </div>
         )}
       </nav>
     </div>

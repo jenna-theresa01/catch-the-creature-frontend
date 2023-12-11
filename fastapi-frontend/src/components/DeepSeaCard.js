@@ -37,6 +37,9 @@ const DeepSeaCard = ({ deepSea }) => {
           {/* Shadow Size */}
           <p className="text-base mb-2">Shadow Size: {deepSea.shadow_size}</p>
 
+          {/* Shadow Movement */}
+          <p className="text-base mb-2">Shadow Movement: {deepSea.shadow_movement}</p>
+
           {/* Sell Price */}
           <div className="flex items-center text-gray-800 text-base mb-2">
             <span>Sell Price (Nook): </span>
