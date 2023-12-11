@@ -3,10 +3,13 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import CreatureType from "./Filter/category/Types";
+import { Permanent_Marker } from "next/font/google";
+
+const font = Permanent_Marker({ subsets: ["latin"], weight: "400" });
 
 const FilterAccordion = ({ hemisphere, creatures }) => {
   // const hemisphere = 'north'
-  console.log(creatures);
+  // console.log(creatures);
   const initialCreatures = creatures && [creatures];
   // State variables for filters
   const [isOpen, setIsOpen] = useState(false);
@@ -22,9 +25,9 @@ const FilterAccordion = ({ hemisphere, creatures }) => {
       )
     : [];
 
-  console.log(filteredCreatures);
-  console.log(filteredCreatures?.length);
-  console.log(hemisphere);
+  // console.log(filteredCreatures);
+  // console.log(filteredCreatures?.length);
+  // console.log(hemisphere);
 
   useEffect(() => {
     setFilteredCreatures(creatures);
@@ -62,6 +65,39 @@ const FilterAccordion = ({ hemisphere, creatures }) => {
         );
       }
     });
+
+      // // Helper function to format time
+      // const formatTime = (hemisphere, selectedMonth) => {
+      //   if (!hemisphere || !hemisphere.availability_array || !hemisphere.times_by_month) {
+      //     return "Anytime";
+      //   }
+      
+      //   const monthAvailability = hemisphere.availability_array.find((availability) => {
+      //     const [startMonth, endMonth] = availability.months.split(' – ');
+      
+      //     if (startMonth && endMonth) {
+      //       const numSelectedMonth = Number(selectedMonth);
+      //       const numStartMonth = Number(startMonth);
+      //       const numEndMonth = Number(endMonth);
+      
+      //       if (numStartMonth <= numEndMonth) {
+      //         return numSelectedMonth >= numStartMonth && numSelectedMonth <= numEndMonth;
+      //       } else {
+      //         // Handle cases where the range wraps around (e.g., Dec - Jan)
+      //         return numSelectedMonth >= numStartMonth || numSelectedMonth <= numEndMonth;
+      //       }
+      //     }
+      
+      //     return false;
+      //   });
+      
+      //   if (!monthAvailability) {
+      //     return "NA";
+      //   }
+      
+      //   return hemisphere.times_by_month[selectedMonth] || "Anytime";
+      // };
+
 
   useEffect(() => {
     console.log(
@@ -165,21 +201,33 @@ const FilterAccordion = ({ hemisphere, creatures }) => {
       <p className="mt-7">Number of Creatures: {filteredCreatures?.length}</p>
       <div className="flex flex-wrap justify-center">
         {filteredCreatures?.map((creature) => (
-          <div className="flex flex-col items-center m-4">
-            {/* TODO: MAKE THIS LOOK HOW YOU WANT */}
-            <img src={creature.image_url} alt="" height={100} width={100} />
-            <p className="mt-2">Name: {creature.name}</p>
-            <p>Location: {creature.location}</p>
-
-            <div className="flex items-center">
-              {" "}
-              {/* Added flex container */}
-              <p>Nook Price: {creature.sell_nook.toLocaleString()}</p>
+          <div className="flex flex-col m-4 items-center shadow-lg bg-animal_crossing_brown rounded-lg border-2 border-animal_crossing_tan" >
+            <div className="align-content-center">
               <img
-                src="/img/money_bag.png"
-                alt="Bells"
-                className="ml-2 h-5 w-5"
+                src={creature.image_url}
+                alt=""
+                height={100}
+                width={100}
+                className="ml-9"
               />
+              <p className={`text-center ${font.className}`}>{creature.name}</p>
+              <div className="m-3">
+                <p>Location: {creature.location}</p>
+
+                {/* <div>
+                <p>Time: {formatTime(creature.hemisphere, selectedMonth)}</p>
+                </div> */}
+
+                <div className="flex items-center">
+                  {/* {" "} */}
+                  <p>Nook Price: {creature.sell_nook.toLocaleString()}</p>
+                  <img
+                    src="/img/money_bag.png"
+                    alt="Bells"
+                    className="ml-2 h-5 w-5"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         ))}
