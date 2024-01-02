@@ -42,9 +42,9 @@ const FilterAccordion = ({ hemisphere, creatures }) => {
   const filteredCreaturesFilter = () =>
     creatures?.filter((creature) => {
       if (hemisphere === "north") {
-        console.log(
-          creature.north.months_array?.includes(Number(selectedMonth))
-        );
+        // console.log(
+        //   creature.north.months_array?.includes(Number(selectedMonth))
+        // );
         return (
           (selectedMonth === "" ||
             creature.north.months_array?.includes(Number(selectedMonth))) &&
@@ -107,7 +107,7 @@ const FilterAccordion = ({ hemisphere, creatures }) => {
       selectedCreatureType
     );
     setFilteredCreatures(filteredCreaturesFilter);
-  }, [selectedMonth, selectedCreatureType, selectedLocation, hemisphere]);
+  }, [selectedMonth, selectedCreatureType, selectedLocation, hemisphere, filteredCreaturesFilter]);
 
   return (
     <div className="w-full max-w-md">
@@ -201,9 +201,9 @@ const FilterAccordion = ({ hemisphere, creatures }) => {
       <p className="mt-7">Number of Creatures: {filteredCreatures?.length}</p>
       <div className="flex flex-wrap justify-center">
         {filteredCreatures?.map((creature) => (
-          <div className="flex flex-col m-4 items-center shadow-lg bg-animal_crossing_brown rounded-lg border-2 border-animal_crossing_tan" >
+          <div key={creature.id} className="flex flex-col m-4 items-center shadow-lg bg-animal_crossing_brown rounded-lg border-2 border-animal_crossing_tan" >
             <div className="align-content-center">
-              <img
+              <Image
                 src={creature.image_url}
                 alt=""
                 height={100}
@@ -221,9 +221,11 @@ const FilterAccordion = ({ hemisphere, creatures }) => {
                 <div className="flex items-center">
                   {/* {" "} */}
                   <p>Nook Price: {creature.sell_nook.toLocaleString()}</p>
-                  <img
+                  <Image
                     src="/img/money_bag.png"
                     alt="Bells"
+                    width="5"
+                    height="5"
                     className="ml-2 h-5 w-5"
                   />
                 </div>

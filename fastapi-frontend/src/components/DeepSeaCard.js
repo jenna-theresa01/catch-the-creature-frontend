@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Permanent_Marker } from "next/font/google";
+import Image from "next/image";
 
 const font = Permanent_Marker({ subsets: ["latin"], weight: "400" });
 
@@ -21,9 +22,11 @@ const DeepSeaCard = ({ deepSea }) => {
       <div className="flex items-center">
         <div>
           {/* Deep Sea Creature Image */}
-          <img
+          <Image
             src={deepSea.image_url}
             alt={deepSea.name}
+            height="24"
+            width="24"
             className="w-24 h-24 rounded mr-4"
           />
 
@@ -44,9 +47,11 @@ const DeepSeaCard = ({ deepSea }) => {
           <div className="flex items-center text-gray-800 text-base mb-2">
             <span>Sell Price (Nook): </span>
             <span>{deepSea.sell_nook.toLocaleString()}</span>
-            <img
+            <Image
               src="/img/money_bag.png"
               alt="Bells"
+              height="5"
+              width="5"
               className="ml-2 h-5 w-5"
             />
           </div>

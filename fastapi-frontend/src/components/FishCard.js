@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Permanent_Marker } from "next/font/google";
+import Image from "next/image";
 
 const font = Permanent_Marker({ subsets: ["latin"], weight: "400" });
 
@@ -21,9 +22,11 @@ const FishCard = ({ fish }) => {
       <div className="flex">
         <div className="align-content-center">
           {/* Fish Image */}
-          <img
+          <Image
             src={fish.image_url}
             alt={fish.name}
+            height="24"
+            width="24"
             className="w-24 h-24 rounded mr-4"
           />
 
@@ -44,18 +47,22 @@ const FishCard = ({ fish }) => {
           <div className="flex items-center text-gray-800 ">
             <span>Sell Price (Nook): </span>
             <span>{fish.sell_nook.toLocaleString()}</span>
-            <img
+            <Image
               src="/img/money_bag.png"
               alt="Bells"
+              height="5"
+              width="5"
               className="ml-2 h-5 w-5"
             />
           </div>
           <div className="flex items-center text-gray-800 text-base mb-2">
             <span>Sell Price (CJ): </span>
             <span> {fish.sell_cj.toLocaleString()}</span>
-            <img
+            <Image
               src="/img/money_bag.png"
               alt="Bells"
+              height="5"
+              width="5"
               className="ml-2 h-5 w-5"
             />
           </div>

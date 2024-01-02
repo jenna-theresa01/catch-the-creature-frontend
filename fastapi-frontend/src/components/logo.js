@@ -1,12 +1,13 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Logo() {
 
     return(
         <div>
-            <a className='flex' href='/'> 
+            <Link className='flex' href='/'> 
                 <Image src='/img/logo.png' alt="Logo" height={64} width={64} className="rounded-full" />
-            </a>
+            </Link>
         </div>
     )
 }
