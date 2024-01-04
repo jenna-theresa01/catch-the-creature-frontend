@@ -50,8 +50,8 @@ const FishCard = ({ fish }) => {
             <Image
               src="/img/money_bag.png"
               alt="Bells"
-              height="5"
-              width="5"
+              height={100}
+              width={100}
               className="ml-2 h-5 w-5"
             />
           </div>
