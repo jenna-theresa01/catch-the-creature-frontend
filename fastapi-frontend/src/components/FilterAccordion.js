@@ -66,38 +66,37 @@ const FilterAccordion = ({ hemisphere, creatures }) => {
       }
     });
 
-      // // Helper function to format time
-      // const formatTime = (hemisphere, selectedMonth) => {
-      //   if (!hemisphere || !hemisphere.availability_array || !hemisphere.times_by_month) {
-      //     return "Anytime";
-      //   }
-      
-      //   const monthAvailability = hemisphere.availability_array.find((availability) => {
-      //     const [startMonth, endMonth] = availability.months.split(' – ');
-      
-      //     if (startMonth && endMonth) {
-      //       const numSelectedMonth = Number(selectedMonth);
-      //       const numStartMonth = Number(startMonth);
-      //       const numEndMonth = Number(endMonth);
-      
-      //       if (numStartMonth <= numEndMonth) {
-      //         return numSelectedMonth >= numStartMonth && numSelectedMonth <= numEndMonth;
-      //       } else {
-      //         // Handle cases where the range wraps around (e.g., Dec - Jan)
-      //         return numSelectedMonth >= numStartMonth || numSelectedMonth <= numEndMonth;
-      //       }
-      //     }
-      
-      //     return false;
-      //   });
-      
-      //   if (!monthAvailability) {
-      //     return "NA";
-      //   }
-      
-      //   return hemisphere.times_by_month[selectedMonth] || "Anytime";
-      // };
+  // // Helper function to format time
+  // const formatTime = (hemisphere, selectedMonth) => {
+  //   if (!hemisphere || !hemisphere.availability_array || !hemisphere.times_by_month) {
+  //     return "Anytime";
+  //   }
 
+  //   const monthAvailability = hemisphere.availability_array.find((availability) => {
+  //     const [startMonth, endMonth] = availability.months.split(' – ');
+
+  //     if (startMonth && endMonth) {
+  //       const numSelectedMonth = Number(selectedMonth);
+  //       const numStartMonth = Number(startMonth);
+  //       const numEndMonth = Number(endMonth);
+
+  //       if (numStartMonth <= numEndMonth) {
+  //         return numSelectedMonth >= numStartMonth && numSelectedMonth <= numEndMonth;
+  //       } else {
+  //         // Handle cases where the range wraps around (e.g., Dec - Jan)
+  //         return numSelectedMonth >= numStartMonth || numSelectedMonth <= numEndMonth;
+  //       }
+  //     }
+
+  //     return false;
+  //   });
+
+  //   if (!monthAvailability) {
+  //     return "NA";
+  //   }
+
+  //   return hemisphere.times_by_month[selectedMonth] || "Anytime";
+  // };
 
   useEffect(() => {
     console.log(
@@ -107,7 +106,13 @@ const FilterAccordion = ({ hemisphere, creatures }) => {
       selectedCreatureType
     );
     setFilteredCreatures(filteredCreaturesFilter);
-  }, [selectedMonth, selectedCreatureType, selectedLocation, hemisphere, filteredCreaturesFilter]);
+  }, [
+    selectedMonth,
+    selectedCreatureType,
+    selectedLocation,
+    hemisphere,
+    filteredCreaturesFilter,
+  ]);
 
   return (
     <div className="w-full max-w-md">
@@ -201,7 +206,10 @@ const FilterAccordion = ({ hemisphere, creatures }) => {
       <p className="mt-7">Number of Creatures: {filteredCreatures?.length}</p>
       <div className="flex flex-wrap justify-center">
         {filteredCreatures?.map((creature) => (
-          <div key={creature.id} className="flex flex-col m-4 items-center shadow-lg bg-animal_crossing_brown rounded-lg border-2 border-animal_crossing_tan" >
+          <div
+            key={creature.id}
+            className="flex flex-col m-4 items-center shadow-lg bg-animal_crossing_brown rounded-lg border-2 border-animal_crossing_tan"
+          >
             <div className="align-content-center">
               <Image
                 src={creature.image_url}
@@ -224,8 +232,8 @@ const FilterAccordion = ({ hemisphere, creatures }) => {
                   <Image
                     src="/img/money_bag.png"
                     alt="Bells"
-                    width="5"
-                    height="5"
+                    height={100}
+                    width={100}
                     className="ml-2 h-5 w-5"
                   />
                 </div>
