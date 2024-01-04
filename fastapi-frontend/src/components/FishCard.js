@@ -25,8 +25,8 @@ const FishCard = ({ fish }) => {
           <Image
             src={fish.image_url}
             alt={fish.name}
-            height="24"
-            width="24"
+            height={100}
+            width={100}
             className="w-24 h-24 rounded mr-4"
           />
 
@@ -61,8 +61,8 @@ const FishCard = ({ fish }) => {
             <Image
               src="/img/money_bag.png"
               alt="Bells"
-              height="5"
-              width="5"
+              height={100}
+              width={100}
               className="ml-2 h-5 w-5"
             />
           </div>
