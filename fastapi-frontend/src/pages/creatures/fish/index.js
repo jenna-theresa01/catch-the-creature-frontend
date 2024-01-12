@@ -4,6 +4,7 @@ import NavBar from "../../../components/NavBar";
 import { Permanent_Marker } from "next/font/google";
 import FishCard from "@/components/FishCard";
 import axios from "axios";
+import { API_URL } from "@/services/auth.constants";
 
 const font = Permanent_Marker({ subsets: ["latin"], weight: "400" });
 
@@ -14,7 +15,7 @@ const FishPage = () => {
     // Fetch all fish data from the API
     const fetchFishData = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:8000/api/v1/fish/");
+        const response = await axios.get(`${API_URL}fish/`);
         setFishData(response.data.data);
       } catch (error) {
         console.error("Error fetching fish data:", error);
