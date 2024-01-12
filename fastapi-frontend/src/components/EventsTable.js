@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import { API_URL } from "@/services/auth.constants";
 
 
 const EventsCalendar = () => {
@@ -10,7 +11,7 @@ const EventsCalendar = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/api/v1/events/');
+        const response = await axios.get(`${API_URL}events/`);
         setEvents(response.data.data);
       } catch (error) {
         console.error('Error fetching events:', error);

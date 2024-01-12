@@ -4,6 +4,7 @@ import NavBar from "../../../components/NavBar";
 import DeepSeaCard from "@/components/DeepSeaCard";
 import axios from "axios";
 import { Permanent_Marker } from "next/font/google";
+import { API_URL } from "@/services/auth.constants";
 
 const font = Permanent_Marker({ subsets: ["latin"], weight: "400" });
 
@@ -14,7 +15,7 @@ const DeepSeaCreaturesPage = () => {
         // Fetch all deep sea creature data from API
         const fetchDeepSeaData = async () => {
             try {
-                const response = await axios.get("http://127.0.0.1:8000/api/v1/deep-sea-creatures/");
+                const response = await axios.get(`${API_URL}deep-sea-creatures`);
                 setDeepSeaData(response.data.data);
             } catch (error) {
                 console.error("Error fetching deep sea creature data:", error);

@@ -4,6 +4,7 @@ import NavBar from "../../../components/NavBar";
 import BugCard from "@/components/BugCard";
 import axios from "axios";
 import { Permanent_Marker } from "next/font/google";
+import { API_URL } from "@/services/auth.constants";
 
 const font = Permanent_Marker({ subsets: ["latin"], weight: "400" });
 
@@ -14,7 +15,7 @@ const BugsPage = () => {
     // Fetch all bug data from the API
     const fetchBugData = async () => {
         try {
-            const response = await axios.get("http://127.0.0.1:8000/api/v1/bugs/");
+            const response = await axios.get(`${API_URL}bugs/`);
             setBugData(response.data.data);
         } catch (error) {
             console.error("Error fetching bug data:", error);

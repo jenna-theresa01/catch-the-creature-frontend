@@ -6,13 +6,14 @@ import axios from 'axios';
 import Month from './category/Months';
 import Location from './category/Locations';
 import CreatureType from './category/Types';
+import { API_URL } from '@/services/auth.constants';
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 let endpoints = [
-    'http://127.0.0.1:8000/api/v1/fish/',
-    'http://127.0.0.1:8000/api/v1/bugs/',
-    'http://127.0.0.1:8000/api/v1/deep-sea-creatures/'
+    `${API_URL}fish/`,
+    `${API_URL}bugs/`,
+    `${API_URL}deep-sea-creatures/`
 ]
 
 axios.all(endpoints.map((endpoint) => axios.get(endpoint))).then(

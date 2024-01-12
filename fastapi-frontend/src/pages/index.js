@@ -13,6 +13,7 @@ import Toggle from "@/components/Toggle";
 import Filter from "@/components/Filter/Filter";
 import FilterAccordion from "@/components/FilterAccordion";
 import { Permanent_Marker } from "next/font/google";
+import { API_URL } from "@/services/auth.constants";
 
 const font = Permanent_Marker({ subsets: ["latin"], weight: "400" });
 
@@ -44,9 +45,9 @@ export default function Home() {
   // and set it equal to const creatures
 
   const endpoints = [
-    "http://127.0.0.1:8000/api/v1/fish/",
-    "http://127.0.0.1:8000/api/v1/bugs/",
-    "http://127.0.0.1:8000/api/v1/deep-sea-creatures/",
+    `${API_URL}fish/`,
+    `${API_URL}bugs/`,
+    `${API_URL}deep-sea-creatures/`
   ];
 
   useEffect(() => {

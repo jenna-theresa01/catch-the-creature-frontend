@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Permanent_Marker } from "next/font/google";
+import { API_URL } from "@/services/auth.constants";
 
 const font = Permanent_Marker({ subsets: ["latin"], weight: "400" });
 
@@ -22,7 +23,7 @@ export default function Toggle(props) {
   };
 
   useEffect(() => {
-    const apiEndpoint = "http://127.0.0.1:8000/api/v1/fish/";
+    const apiEndpoint = `${API_URL}fish/`;
 
     axios
       .get(apiEndpoint)
